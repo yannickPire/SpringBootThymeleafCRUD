@@ -49,7 +49,7 @@
 
     <div class="container">
         <div class="row">
-            <table class="table table-striped" th:each="contact : ${contacts}">
+            <table class="table table-striped">
                 <thead>
                 <tr>
                     <th>First name</th>
@@ -57,7 +57,7 @@
                     <th>Phone</th>
                     <th>Email</th>
                 </tr>
-                <tbody>
+                <tbody th:each="contact : ${contacts}">
                 <tr>
                     <td><span th:text="${contact.firstName}">First</span></td>
                     <td><span th:text="${contact.lastName}">Last</span></td>
