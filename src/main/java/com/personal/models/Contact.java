@@ -85,4 +85,9 @@ public class Contact {
         this.phoneNumber = phoneNumber;
     }
 
+    @Override
+    public String toString() {
+        return "First name: " + getFirstName() + ", Last name: " + getLastName() + ", Phonenumber: " + getPhoneNumber() + ", Email: " + getEmailAddress();
+    }
+
 }
