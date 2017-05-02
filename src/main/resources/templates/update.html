@@ -46,72 +46,62 @@
     <h2>Spring boot for Contacts</h2>
 </div>
 <div class="content-section-a">
+    <div class="formHeight">
+        <div class="container">
+            <div class="row">
+                <form class="form-control" th:action="@{/update}" th:object="${contact}" method="POST">
+                    <div class="errors" th:if="${#fields.hasErrors('*')}">
+                        <ul>
+                            <li th:each="err : ${#fields.errors('*')}" th:text="${err}">Input is incorrect</li>
+                        </ul>
+                    </div>
+                    <div id="example-text-input">
+                        <div class="form-group row">
+                            <label for="firstName" class="col-2 col-form-label">First Name:</label>
+                            <div class="col-10">
+                                <input class="form-control" type="text" th:field="*{firstName}"/> <span
+                                    th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">Name Error</span>
+                            </div>
+                        </div>
 
-    <div class="container">
-        <div class="row">
-            <form class="form-control" th:action="@{/update}" th:object="${contact}" method="POST">
-                <div class="errors" th:if="${#fields.hasErrors('*')}">
-                    <ul>
-                        <li th:each="err : ${#fields.errors('*')}" th:text="${err}">Input is incorrect</li>
-                    </ul>
-                </div>
-                <div id="example-text-input">
+                        <div class="form-group row">
+                            <label for="lastName" class="col-2 col-form-label">Last Name:</label>
+                            <div class="col-10">
+                                <input class="form-control" type="text" th:field="*{lastName}"/> <span
+                                    th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">Name Error</span>
+                            </div>
+                        </div>
+                    </div>
+
+
                     <div class="form-group row">
-                        <label for="firstName" class="col-2 col-form-label">First Name:</label>
+                        <label class="col-2 col-form-label" for="phoneNumber">Phone:</label>
                         <div class="col-10">
-                            <input class="form-control" type="text" th:field="*{firstName}"/> <span
-                                th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">Name Error</span>
+                            <input class="form-control" type="tel" id="example-tel-input" th:field="*{phoneNumber}"/>
+                            <span
+                                    th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">Name Error</span>
                         </div>
                     </div>
 
                     <div class="form-group row">
-                        <label for="lastName" class="col-2 col-form-label">Last Name:</label>
+                        <label class="col-2 col-form-label" for="emailAddress">Email:</label>
                         <div class="col-10">
-                            <input class="form-control" type="text" th:field="*{lastName}"/> <span
-                                th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">Name Error</span>
+                            <input class="form-control" type="email" th:field="*{emailAddress}"/><span
+                                th:if="${#fields.hasErrors('emailAddress')}"
+                                th:errors="*{emailAddress}">Name Error</span>
                         </div>
                     </div>
-                </div>
 
 
-                <div class="form-group row">
-                    <label class="col-2 col-form-label" for="phoneNumber">Phone:</label>
-                    <div class="col-10">
-                        <input class="form-control" type="tel" id="example-tel-input" th:field="*{phoneNumber}"/> <span
-                            th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">Name Error</span>
-                    </div>
-                </div>
-
-                <div class="form-group row">
-                    <label class="col-2 col-form-label" for="emailAddress">Email:</label>
-                    <div class="col-10">
-                        <input class="form-control" type="email" th:field="*{emailAddress}"/><span
-                            th:if="${#fields.hasErrors('emailAddress')}" th:errors="*{emailAddress}">Name Error</span>
-                    </div>
-                </div>
-
-
-                <input type="submit"/>
-                <input type="reset" value="Reset"/>
-            </form>
-        </div>
-    </div>
-</div>
-<footer>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <ul class="list-inline">
-                    <li>
-                        <a href="/">Spring boot for Contacts</a>
-                    </li>
-                    <li><a href="/register">Create a new contact</a></li>
-                </ul>
-                <p class="copyright text-muted small">Copyright © Patje P Design 2017. All Rights Reserved</p>
+                    <input type="submit"/>
+                    <input type="reset" value="Reset"/>
+                </form>
             </div>
         </div>
     </div>
-</footer>
+
+</div>
+
 
 </body>
 </html>
