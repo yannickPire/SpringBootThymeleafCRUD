@@ -59,6 +59,7 @@
                         <div class="form-group row">
                             <label for="firstName" class="col-2 col-form-label">First Name:</label>
                             <div class="col-10">
+                                <input type="hidden" th:field="*{id}"/>
                                 <input class="form-control" type="text" th:field="*{firstName}"/> <span
                                     th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">Name Error</span>
                             </div>
@@ -93,7 +94,7 @@
                     </div>
 
 
-                    <input type="submit"/>
+                    <input type="submit" value="Update"/>
                     <input type="reset" value="Reset"/>
                 </form>
             </div>
