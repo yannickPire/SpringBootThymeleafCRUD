@@ -2,6 +2,7 @@ package com.personal.service;
 
 import com.personal.models.Contact;
 import com.personal.repos.ContactRepository;
+import org.hibernate.jpa.event.spi.jpa.Listener;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
