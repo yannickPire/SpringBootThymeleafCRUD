@@ -71,30 +71,33 @@
                                     th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">Name Error</span>
                             </div>
                         </div>
-                    </div>
 
-
-                    <div class="form-group row">
-                        <label class="col-2 col-form-label" >Phone:</label>
-                        <div class="col-10">
-                            <input class="form-control" type="tel" id="example-tel-input" th:field="*{phoneNumber}"/>
-                            <span
-                                    th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">Name Error</span>
+                        <div class="form-group row">
+                            <label class="col-2 col-form-label">Phone:</label>
+                            <div class="col-10">
+                                <input class="form-control" type="tel" id="example-tel-input"
+                                       th:field="*{phoneNumber}"/>
+                                <span
+                                        th:if="${#fields.hasErrors('lastName')}"
+                                        th:errors="*{lastName}">Name Error</span>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="form-group row">
-                        <label class="col-2 col-form-label" >Email:</label>
-                        <div class="col-10">
-                            <input class="form-control" type="email" th:field="*{emailAddress}"/><span
-                                th:if="${#fields.hasErrors('emailAddress')}"
-                                th:errors="*{emailAddress}">Name Error</span>
+                        <div class="form-group row">
+                            <label class="col-2 col-form-label">Email:</label>
+                            <div class="col-10">
+                                <input class="form-control" type="email" th:field="*{emailAddress}"/><span
+                                    th:if="${#fields.hasErrors('emailAddress')}"
+                                    th:errors="*{emailAddress}">Name Error</span>
+                            </div>
                         </div>
+
+
+                        <input type="submit"/>
+                        <input type="reset" value="Reset"/>
                     </div>
 
 
-                    <input type="submit"/>
-                    <input type="reset" value="Reset"/>
                 </form>
             </div>
         </div>
