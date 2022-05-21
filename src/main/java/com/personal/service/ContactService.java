@@ -2,12 +2,12 @@ package com.personal.service;
 
 import com.personal.models.Contact;
 import com.personal.repos.ContactRepository;
-import org.hibernate.jpa.event.spi.jpa.Listener;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Optional;
 
 @Component
 public class ContactService {
@@ -25,11 +25,12 @@ public class ContactService {
     }
 
     public Contact findSingleContact(Long id) {
-        return repository.findOne(id);
+        return repository.findById(id).orElse(null);
     }
 
     public void removeContact(Long id) {
-        repository.delete(id);
+        Optional<Contact> contact = repository.findById(id);
+        contact.ifPresent(value -> repository.delete(value));
     }
 
     public void updateContact(Contact contact) {
