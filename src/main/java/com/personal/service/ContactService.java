@@ -3,7 +3,6 @@ package com.personal.service;
 import com.personal.models.Contact;
 import com.personal.repos.ContactRepository;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
