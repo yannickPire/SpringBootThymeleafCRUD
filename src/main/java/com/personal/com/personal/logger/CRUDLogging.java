@@ -13,8 +13,8 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
  */
 @Configuration
 @ComponentScan(value = "com.personal")
-@Aspect
-@EnableAspectJAutoProxy
+//@Aspect
+//@EnableAspectJAutoProxy
 public class CRUDLogging {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(CRUDLogging.class);
@@ -22,14 +22,11 @@ public class CRUDLogging {
     //Retrieving data from the database
     @After(value = "execution(* com.personal.service.ContactService.findEveryContact(..)) *)")
     public void logHomePage() {
-
         LOGGER.info("********************************************************************");
         LOGGER.info("********************************************************************");
         LOGGER.info("Homepage is reached, and all the data is retrieved from the Database");
         LOGGER.info("********************************************************************");
         LOGGER.info("********************************************************************");
-
-
     }
 
     //Inserting data into the database
