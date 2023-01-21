@@ -1,4 +1,4 @@
-package com.personal.com.personal.logger;
+package com.personal.logger;
 
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
@@ -13,8 +13,8 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
  */
 @Configuration
 @ComponentScan(value = "com.personal")
-//@Aspect
-//@EnableAspectJAutoProxy
+@Aspect
+@EnableAspectJAutoProxy
 public class CRUDLogging {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(CRUDLogging.class);
