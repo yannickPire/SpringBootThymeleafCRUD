@@ -7,7 +7,7 @@
 
     <parent>
         <groupId>org.springframework.boot</groupId>
-        <version>3.0.1</version>
+        <version>3.0.4</version>
         <artifactId>spring-boot-starter-parent</artifactId>
         <relativePath/>
     </parent>
@@ -42,12 +42,12 @@
             <artifactId>mysql-connector-j</artifactId>
             <version>8.0.32</version>
         </dependency>
-        <!--        &lt;!&ndash; https://mvnrepository.com/artifact/org.flywaydb/flyway-core &ndash;&gt;-->
-        <!--        <dependency>-->
-        <!--            <groupId>org.flywaydb</groupId>-->
-        <!--            <artifactId>flyway-core</artifactId>-->
-        <!--            <version>9.11.0</version>-->
-        <!--        </dependency>-->
+        <dependency>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-mysql</artifactId>
+            <version>9.12.0</version>
+            <scope>runtime</scope>
+        </dependency>
 
         <!-- Java enhancements -->
         <dependency>
@@ -62,4 +62,20 @@
         <java.version>17</java.version>
     </properties>
 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.flywaydb</groupId>
+                <artifactId>flyway-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>migrate</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 </project>
