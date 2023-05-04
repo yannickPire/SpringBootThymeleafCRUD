@@ -1,4 +1,4 @@
-package com.personal.com.personal.logger;
+package com.personal.logger;
 
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
@@ -22,14 +22,11 @@ public class CRUDLogging {
     //Retrieving data from the database
     @After(value = "execution(* com.personal.service.ContactService.findEveryContact(..)) *)")
     public void logHomePage() {
-
         LOGGER.info("********************************************************************");
         LOGGER.info("********************************************************************");
         LOGGER.info("Homepage is reached, and all the data is retrieved from the Database");
         LOGGER.info("********************************************************************");
         LOGGER.info("********************************************************************");
-
-
     }
 
     //Inserting data into the database

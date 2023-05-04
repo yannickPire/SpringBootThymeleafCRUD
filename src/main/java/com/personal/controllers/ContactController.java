@@ -2,31 +2,29 @@ package com.personal.controllers;
 
 import com.personal.models.Contact;
 import com.personal.service.ContactService;
-import org.springframework.beans.factory.annotation.Autowired;
+import jakarta.validation.Valid;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
 import java.util.List;
 import java.util.Map;
 
 @Controller
 @RequestMapping("/")
+@AllArgsConstructor
 public class ContactController {
 
-    @Autowired
     private ContactService contactService;
 
     //Retrieve all contacts in the database
     @RequestMapping(method = RequestMethod.GET)
     public String home(Map<String, Object> model) {
-
         List<Contact> contacts = contactService.findEveryContact();
         model.put("contacts", contacts);
         return "home";
-
     }
 
     //Navigating to the new contact form
