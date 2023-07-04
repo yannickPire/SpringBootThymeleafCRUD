@@ -9,6 +9,9 @@ import lombok.Setter;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 @Entity
 @Table(name = "contact")
@@ -44,6 +47,9 @@ public class Contact {
     )
     @Column(name = "emailaddress")
     private String emailAddress;
+
+    @OneToMany(mappedBy = "contact", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Adress> addresses = new ArrayList<>();
 
     public Contact() {
         super();
