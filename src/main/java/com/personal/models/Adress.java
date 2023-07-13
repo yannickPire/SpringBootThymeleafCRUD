@@ -41,7 +41,7 @@ public class Adress {
     private String country;
 
     @ManyToOne
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "contact_id")
     private Contact contact;
 
 }

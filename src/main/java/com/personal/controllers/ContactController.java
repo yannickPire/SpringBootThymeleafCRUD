@@ -3,7 +3,7 @@ package com.personal.controllers;
 import com.personal.models.Contact;
 import com.personal.service.ContactService;
 import jakarta.validation.Valid;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -14,10 +14,10 @@ import java.util.Map;
 
 @Controller
 @RequestMapping("/")
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class ContactController {
 
-    private ContactService contactService;
+    private final ContactService contactService;
 
     //Retrieve all contacts in the database
     @RequestMapping(method = RequestMethod.GET)
@@ -38,7 +38,7 @@ public class ContactController {
     @PostMapping("/submit")
     public String registerSubmit(@Valid @ModelAttribute Contact contact, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
-            return "submit";
+            return "register";
         } else {
             contactService.saveContact(contact);
             return "redirect:/";
