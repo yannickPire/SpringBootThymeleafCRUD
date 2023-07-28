@@ -20,7 +20,7 @@ public class CRUDLogging {
     private static final Logger LOGGER = LoggerFactory.getLogger(CRUDLogging.class);
 
     //Retrieving data from the database
-    @After(value = "execution(* com.personal.service.ContactService.findEveryContact(..)) *)")
+    @After(value = "execution(* com.personal.service.ContactService.findContacts(..)) *)")
     public void logHomePage() {
         LOGGER.debug("********************************************************************");
         LOGGER.debug("********************************************************************");
@@ -40,7 +40,7 @@ public class CRUDLogging {
     }
 
     //Removing contact from the database
-    @After(value = "execution(* com.personal.service.ContactService.removeContact(..)) *)")
+    @After(value = "execution(* com.personal.service.ContactService.deleteContact(..)) *)")
     public void logRemoveContact() {
         LOGGER.debug("********************************************************************");
         LOGGER.debug("********************************************************************");

@@ -22,23 +22,23 @@ public class ContactController {
     //Retrieve all contacts in the database
     @RequestMapping(method = RequestMethod.GET)
     public String home(Map<String, Object> model) {
-        List<Contact> contacts = contactService.findEveryContact();
+        List<Contact> contacts = contactService.findContacts();
         model.put("contacts", contacts);
-        return "home";
+        return "contacts";
     }
 
     //Navigating to the new contact form
     @GetMapping("/register")
     public String registerForm(Model model) {
         model.addAttribute("contact", new Contact());
-        return "register";
+        return "registerContact";
     }
 
     //Pushing the new contact to the database
     @PostMapping("/submit")
     public String registerSubmit(@Valid @ModelAttribute Contact contact, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
-            return "register";
+            return "registerContact";
         } else {
             contactService.saveContact(contact);
             return "redirect:/";
@@ -49,15 +49,22 @@ public class ContactController {
     //Navigating to the update contact form
     @GetMapping("/update/{id}")
     public String updateForm(Model model, @PathVariable Long id) {
-        Contact contact = contactService.findSingleContact(id);
+        Contact contact = contactService.findContact(id);
         model.addAttribute("contact", contact);
-        return "update";
+        return "updateContact";
+    }
+
+    @GetMapping("/contact/{id}")
+    public String detailForm(Model model, @PathVariable Long id) {
+        Contact contact = contactService.findContact(id);
+        model.addAttribute("contact", contact);
+        return "contactDetail";
     }
 
     @PostMapping("/update")
     public String updateSubmit(@Valid @ModelAttribute Contact contact, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
-            return "update";
+            return "updateContact";
         } else {
             contactService.updateContact(contact);
             return "redirect:/";
@@ -68,9 +75,9 @@ public class ContactController {
     //Removing the contact
     @GetMapping("/remove/{id}")
     public String removeContact(@PathVariable Long id) {
-        Contact contact = contactService.findSingleContact(id);
+        Contact contact = contactService.findContact(id);
         if (contact != null) {
-            contactService.removeContact(id);
+            contactService.deleteContact(id);
         }
         return "redirect:/";
     }

@@ -49,7 +49,7 @@
     <div class="formHeight">
         <div class="container">
             <div class="row">
-                <form  th:action="@{/update}" th:object="${contact}" method="POST">
+                <form th:action="@{/update}" th:object="${contact}" method="POST">
                     <div class="errors" th:if="${#fields.hasErrors('*')}">
                         <ul>
                             <li th:each="err : ${#fields.errors('*')}" th:text="${err}">Input is incorrect</li>
@@ -76,9 +76,11 @@
                         <div class="form-group row">
                             <label class="col-2 col-form-label" for="phoneNumber">Phone:</label>
                             <div class="col-10">
-                                <input class="form-control" type="tel" id="example-tel-input" th:field="*{phoneNumber}"/>
+                                <input class="form-control" type="tel" id="example-tel-input"
+                                       th:field="*{phoneNumber}"/>
                                 <span
-                                        th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">Name Error</span>
+                                        th:if="${#fields.hasErrors('lastName')}"
+                                        th:errors="*{lastName}">Name Error</span>
                             </div>
                         </div>
 
@@ -95,9 +97,6 @@
                         <input type="submit" value="Update"/>
                         <input type="reset" value="Reset"/>
                     </div>
-
-
-
                 </form>
             </div>
         </div>

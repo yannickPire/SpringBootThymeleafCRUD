@@ -9,4 +9,4 @@ create table adres (
    constraint fk01_contact_adres foreign key (contact_id) references contact(id)
 );
 
-insert into adres (street, number, zip_code, city, country, contact_id) values ('Dorpstraat', '1', '3000', 'Leuven', 'Belgium', (select id from contact where firstname = 'Jane' and lastname = 'Doe'))
+insert into adres (street, number, zip_code, city, country, contact_id) values ('Dorpstraat', '1', '3000', 'Leuven', 'Belgium', (select id from contact where firstname = 'Jane' and lastname = 'Doe'));

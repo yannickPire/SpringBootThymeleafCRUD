@@ -15,7 +15,7 @@ public class ContactServiceImpl implements ContactService {
     private final ContactRepository repository;
 
     @Override
-    public List<Contact> findEveryContact() {
+    public List<Contact> findContacts() {
         return repository.findAll();
     }
 
@@ -25,14 +25,14 @@ public class ContactServiceImpl implements ContactService {
     }
 
     @Override
-    public Contact findSingleContact(Long id) {
+    public Contact findContact(Long id) {
         return repository.findById(id).orElse(null);
     }
 
     @Override
-    public void removeContact(Long id) {
+    public void deleteContact(Long id) {
         Optional<Contact> contact = repository.findById(id);
-        contact.ifPresent(value -> repository.delete(value));
+        contact.ifPresent(repository::delete);
     }
 
     @Override

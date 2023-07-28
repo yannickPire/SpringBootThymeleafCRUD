@@ -5,13 +5,13 @@ import com.personal.models.Contact;
 import java.util.List;
 
 public interface ContactService {
-    List<Contact> findEveryContact();
+    List<Contact> findContacts();
 
     void saveContact(Contact contact);
 
-    Contact findSingleContact(Long id);
+    Contact findContact(Long id);
 
-    void removeContact(Long id);
+    void deleteContact(Long id);
 
     Contact updateContact(Contact contact);
 }

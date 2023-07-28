@@ -57,9 +57,11 @@
                     <th>Phone</th>
                     <th>Email</th>
                 </tr>
+                </thead>
                 <tbody th:each="contact : ${contacts}">
                 <tr>
-                    <td><span th:text="${contact.firstName}">First</span></td>
+                    <td><a th:href="@{/contact/{id}(id=${contact.id})}"><span
+                            th:text="${contact.firstName}">First</span></a></td>
                     <td><span th:text="${contact.lastName}">Last</span></td>
                     <td><span th:text="${contact.phoneNumber}">phoneNumber</span></td>
                     <td><span th:text="${contact.emailAddress}">emailAdress</span></td>
@@ -70,7 +72,6 @@
                     </td>
                 </tr>
                 </tbody>
-                </thead>
             </table>
         </div>
 
