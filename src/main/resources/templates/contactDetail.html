@@ -79,6 +79,27 @@
                         </div>
                     </div>
 
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>Street</th>
+                            <th>Number</th>
+                            <th>Zipcode</th>
+                            <th>City</th>
+                            <th>Country</th>
+                        </tr>
+                        </thead>
+                        <tbody th:each="address : ${contact.addresses}">
+                        <tr>
+                            <td><span th:text="${address.street}">Street</span></a></td>
+                            <td><span th:text="${address.number}">Number</span></td>
+                            <td><span th:text="${address.zipcode}">Zipcode</span></td>
+                            <td><span th:text="${address.city}">City</span></td>
+                            <td><span th:text="${address.country}">Country</span></td>
+                        </tr>
+                        </tbody>
+                    </table>
+
                     <a th:href="@{/update/{id}(id=${contact.id})}"><span class="glyphicon glyphicon-pencil"/></a>
                 </div>
             </div>
