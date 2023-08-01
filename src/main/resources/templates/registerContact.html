@@ -49,7 +49,7 @@
     <div class="formHeight">
         <div class="container">
             <div class="row">
-                <form th:action="@{/submit}" th:object="${contact}" method="POST">
+                <form th:action="@{/submit}" th:object="${contactDto}" method="POST">
                     <div class="errors" th:if="${#fields.hasErrors('*')}">
                         <ul>
                             <li th:each="err : ${#fields.errors('*')}" th:text="${err}">Input is incorrect</li>

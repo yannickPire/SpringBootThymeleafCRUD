@@ -49,7 +49,7 @@
     <div class="formHeight">
         <div class="container">
             <div class="row">
-                <form th:action="@{/update}" th:object="${contact}" method="POST">
+                <form th:action="@{/update}" th:object="${contactDto}" method="POST">
                     <div class="errors" th:if="${#fields.hasErrors('*')}">
                         <ul>
                             <li th:each="err : ${#fields.errors('*')}" th:text="${err}">Input is incorrect</li>
@@ -93,6 +93,48 @@
                             </div>
                         </div>
 
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Street</th>
+                                    <th>Number</th>
+                                    <th>Zipcode</th>
+                                    <th>City</th>
+                                    <th>Country</th>
+                                </tr>
+                            </thead>
+                            <tbody th:each="addressDto, addressStatus : ${contactDto.addresses}">
+                                <tr>
+                                    <div class="col-10">
+                                        <input type="hidden" th:field="*{addresses[__${addressStatus.index}__].id}"/>
+                                        <input class="form-control" type="text" th:field="*{addresses[__${addressStatus.index}__].street}"/> <span
+                                            th:if="${#fields.hasErrors('addresses[__${addressStatus.index}__].street')}" th:errors="*{addresses[__${addressStatus.index}__].street}">Street Error</span>
+                                    </div>
+
+                                    <div class="col-10">
+                                        <input class="form-control" type="text" th:field="*{addresses[__${addressStatus.index}__].number}"/> <span
+                                            th:if="${#fields.hasErrors('addresses[__${addressStatus.index}__].number')}" th:errors="*{addresses[__${addressStatus.index}__].number}">Number Error</span>
+                                    </div>
+
+                                    <div class="col-10">
+                                        <input class="form-control" type="text" th:field="*{addresses[__${addressStatus.index}__].zipCode}"/> <span
+                                            th:if="${#fields.hasErrors('addresses[__${addressStatus.index}__].zipCode')}" th:errors="*{addresses[__${addressStatus.index}__].zipCode}">ZipCode Error</span>
+
+                                    </div>
+
+                                    <div class="col-10">
+                                        <input class="form-control" type="text" th:field="*{addresses[__${addressStatus.index}__].city}"/> <span
+                                            th:if="${#fields.hasErrors('addresses[__${addressStatus.index}__].city')}" th:errors="*{addresses[__${addressStatus.index}__].city}">City Error</span>
+
+                                    </div>
+
+                                    <div class="col-10">
+                                        <input class="form-control" type="text" th:field="*{addresses[__${addressStatus.index}__].country}"/> <span
+                                            th:if="${#fields.hasErrors('addresses[__${addressStatus.index}__].country')}" th:errors="*{addresses[__${addressStatus.index}__].country}">Country Error</span>
+                                    </div>
+                                </tr>
+                            </tbody>
+                        </table>
 
                         <input type="submit" value="Update"/>
                         <input type="reset" value="Reset"/>
