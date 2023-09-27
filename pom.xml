@@ -50,10 +50,12 @@
         </dependency>
 
         <!-- Java enhancements -->
+        <!-- Needs to be updated to the 1.18.30 version to compile the lombok annotations when upgrading to Java 21 -->
+        <!-- https://stackoverflow.com/questions/77171270/compilation-error-after-upgrading-to-jdk-21 -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.24</version>
+            <version>1.18.30</version> <!-- -->
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -65,6 +67,6 @@
     </dependencies>
 
     <properties>
-        <java.version>20</java.version>
+        <java.version>21</java.version>
     </properties>
 </project>
