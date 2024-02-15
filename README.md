@@ -1,6 +1,6 @@
 # SpringBootThymeleafCRUD
 
-This project is about a small CRUD appliction which is created in Spring Boot with a Thymeleaf Front End.
+This project is about a small CRUD application which is created in Spring Boot with a Thymeleaf Front End.
 I also implemented Spring AOP for logging and Form Validations in Java, through Validation Annotations and Thymeleaf.
 
 ## Setup
